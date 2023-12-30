@@ -28,14 +28,14 @@ function isValidDate(d) {
 }
 
 app.get("/api/:date?", function (req, res) {
-	var date = req.params.date;
-	if (!date) {
+	var date_string = req.params.date;
+	if (!date_string) {
 		date = new Date();
 	} else {
-		if (!date.includes("-")) {
-			date = parseInt(date);
+		if (!date_string.includes("-")) {
+			date_string = parseInt(date_string);
 		}
-		date = new Date(date);
+		date = new Date(date_string);
 	}
 	if (isValidDate(date)) {
 		res.json({
