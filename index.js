@@ -32,9 +32,7 @@ app.get("/api/:date?", function (req, res) {
 	if (!date) {
 		date = new Date();
 	} else {
-		if (date.includes("-")) {
-			date = date.replace(/-/g, "/");
-		} else {
+		if (!date.includes("-")) {
 			date = parseInt(date);
 		}
 		date = new Date(date);
